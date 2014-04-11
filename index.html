@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="找青旅手机APP，背包客旅行路上的好帮手" />
+<meta name="keywords" content="找青旅,手机,APP,背包客,旅行,青年旅舍,青旅" />
+<meta name="author" content="mytharcher" />
+
+<title>找青旅 - 背包客旅行路上的好帮手</title>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+
+<style type="text/css">
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-text-size-adjust: none;
+}
+
+html,body{
+	margin: 0;
+	padding: 0;
+	border: none;
+	line-height: 1;
+	min-height:100%;
+}
+body{
+	color: #555;
+	font-size: 15px;
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+}
+
+.fa:before{
+  width: 1em;
+  text-align: center;
+}
+
+.scroll-row{
+	position: relative;
+}
+.parallel-image{
+	position: relative;
+	width: 100%;
+	/*max-height: 100%;*/
+	bottom: 0;
+/*
+	-webkit-transition: top .5s ease;
+	-moz-transition: top .5s ease;
+	-ms-transition: top .5s ease;
+	transition: top .5s ease;*/
+}
+.parallel-image img{
+	width: 100%;
+	vertical-align: middle;
+}/*
+.block-header{
+	background: url(http://mbed.qiniudn.com/findyha.com/img/background-1280-in.jpg) no-repeat;
+	background-size: cover;
+}*/
+.block-header{
+	padding: 0;
+}
+.block-header .container{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+}
+.block-header .container-inner{
+	position: relative;
+	top: 30px;
+	width: 600px;
+	margin: auto;
+	color: #fff;
+}
+.block-header .learn-more{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	font-size: 6em;
+	text-align: center;
+}
+.block-header .learn-more a{
+	color: rgba(255,255,255,.6);
+	text-decoration: none;
+}
+.block-header .learn-more a:hover{
+	color: rgba(255,255,255,.8);
+	font-size: 1.1em;
+}
+.phone-frame{
+	position: relative;
+	width: 240px;
+	height: 540px;
+	overflow: hidden;
+	background: url(http://mbed.qiniudn.com/findyha.com/img/nexus-frame-240x480-alpha.png) no-repeat;
+}
+.phone-frame-inner{
+	position: absolute;
+	left: 15px;
+	top: 44px;
+	width: 210px;
+	height: 370px;
+	background: url(http://mbed.qiniudn.com/findyha.com/img/phone-background.jpg) no-repeat;
+	text-align: center;
+}
+.phone-frame .extra{
+	position: absolute;
+	top: 500px;
+	width: 100%;
+	text-align: center;
+}
+.phone-frame .extra a{
+	padding: 10px;
+	border-radius: 5px;
+	background: rgba(0,0,0,.2);
+	color: #fff;
+	text-shadow: 0 0 1px rgba(0,0,0,.5);
+	text-decoration: none;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.block-header .hero-unit{
+	position: absolute;
+	top: 40px;
+	left: 300px;
+	width: 400px;
+}
+.block-header .hero-unit h1{
+	margin: 0;
+	font-size: 3.2em;
+	text-shadow: 1px 2px 1px rgba(0,0,0,.5);
+}
+.block-header .hero-unit h1 sup{
+	margin-left: 10px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background: rgba(255,255,255,.8);
+	/*color: #ff9517;*/
+	color: #6c6;
+	font-size: 25%;
+	text-shadow: none;
+}
+.block-header .hero-unit h2{
+	font-size: 1.5em;
+	font-weight: normal;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+.block-header .hero-unit ul{
+	width: 280px;
+	margin: 1em 0;
+	padding: .6em 1em;
+	background: rgba(0,0,0,.2);
+	border-radius: 5px;
+}
+.block-header .hero-unit li{
+	list-style: inside;
+	line-height: 1.6em;
+}
+.block-header .hero-unit span.extra{
+	color: rgba(255,255,255,.5);
+}
+.download-links{
+	position: relative;
+	width: 280px;
+}
+.download-links:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.download-links>a{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 130px;
+	height: 40px;
+	overflow: hidden;
+	/*padding: .4em 0 0 2.3em;*/
+	border-radius: 5px;
+	color: #fff;
+	text-decoration: none;
+}
+.download-links>a:first-child{
+	margin-right: 20px;
+}
+.download-links>a small{
+	display: block;
+	font-size: .5em;
+	-webkit-transform:scale(0.5);
+	-webkit-transform-origin-x: 0;
+	line-height: 1.5em;
+}
+.download-links>a i{
+	position: absolute;
+	left: 8px;
+	top: 6px;
+	font-size: 1.8em;
+}
+.download-links>a.android{
+	background: #A4C639;
+}
+.download-links>a.android small{
+	text-align: center;
+}
+.download-links>a.ios{
+	background: #999;
+}
+.download-links .hover-qrcode{
+	display: none;
+	position: absolute;
+	top: 45px;
+	left: 0;
+	width: 130px;
+	height: 130px;
+	padding: 5px;
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+.download-links>a.android:hover~div.hover-qrcode{
+	display: block;
+}
+.download-links .hover-ios-hint{
+	display: none;
+	position: absolute;
+	top: 45px;
+	right: 0;
+
+	width: 130px;
+	padding: 5px;
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+
+	color: #555;
+	font-size: 85%;
+}
+.download-links>a.ios:hover~.hover-ios-hint,
+.download-links .hover-ios-hint:hover{
+	display: block;
+}
+.hover-ios-hint>h4,
+.hover-ios-hint>p,
+.hover-ios-hint>ol{
+	margin: .5em 0;
+	padding: 0;
+}
+.download-links .hover-ios-hint li{
+	list-style: inside decimal;
+}
+.download-links .hover-ios-hint a{
+	color: #FF9517;
+}
+
+.container{
+	width: 60%;
+	min-width: 600px;
+	max-width: 800px;
+	margin: auto;
+}
+.container:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.block-features{/*
+	background: #ff9517;
+	color: #fff;*/
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+	padding: 50px 0;
+}
+.block-features .column{
+	float: left;
+	width: 48%;
+}
+.block-features .column:nth-child(2n-1){
+	margin-right: 4%;
+	clear: left;
+}
+.block-features .column h3{
+	margin: .5em 0;
+	font-size: 2em;
+	/*text-align: center;*/
+}
+.block-features .column h3 i{
+	margin-right: .5em;
+	font-size: 1.5em;
+}
+.block-features .column p{
+	/*font-size: 1.2em;*/
+	line-height: 1.5em;
+}
+.block-features strong{
+	margin: 0 2px;
+}
+.block-features .feature-data strong{
+	color: #06c;
+}
+.block-features .feature-bandwidth strong{
+	color: #ff9517;
+}
+
+.block-about{
+	padding: 50px 0;
+	background: #333;
+	color: #999;
+	box-shadow: inset 0 5px 5px rgba(0,0,0,.1);
+}
+.block-about .container{
+	position: relative;
+	padding-left: 120px;
+	/*font-size: 1.1em;*/
+	line-height: 1.5em;
+}
+.block-about .number{
+	margin: 0 .5em;
+	color: #ff9517;
+	font-weight: bold;
+}
+.block-about figure{
+	position: absolute;
+	left: 0;
+	margin: 0;
+}
+.block-about figure img{
+	border-radius: 5px;
+}
+.block-about figure figcaption{
+	display: block;
+	/*text-align: center;*/
+}
+.block-about blockquote{
+	position: relative;
+	margin: 0;
+	padding: 0 100px;
+}/*
+.block-about blockquote:before,
+.block-about blockquote:after{
+	position: absolute;
+	font-size: 5em;
+	font-weight: bold;
+	color: #666;
+}
+.block-about blockquote:before{
+	content: "“";
+	left: 0;
+	top: .4em;
+}
+.block-about blockquote:after{
+	content: "”";
+	right: 0;
+	bottom: .4em;
+}*/
+.block-about blockquote i.fa-quote-left,
+.block-about blockquote i.fa-quote-right{
+	position: absolute;
+	font-size: 3em;
+	font-weight: bold;
+	color: #555;
+}
+.block-about blockquote i.fa-quote-left{
+	left: 30px;
+	top: 0;
+}
+.block-about blockquote i.fa-quote-right{
+	right: 0;
+	bottom: 0;
+}
+.block-about .email:after{
+	content: "mytharcher@gmail.com";
+	color: rgba(255,149,23,.5);
+}
+.block-about .email:hover:after{
+	color: rgba(255,149,23,1);
+}
+
+.block-copyright{
+	background: #333;
+	color: #555;
+	text-align: center;
+}
+.block-copyright p{
+	margin: 0;
+	font-size: 80%;
+	line-height: 3em;
+}
+
+#donate-count{
+	color: #ff9517;
+	text-decoration: none;
+}
+#donate-count:hover{
+	text-decoration: underline;
+}
+#donate-list{
+	height: 0;
+	overflow: auto;
+	border-radius: 5px;
+	background: #202020;
+	box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+	-webkit-transition: height .5s ease;
+	-moz-transition: height .5s ease;
+	transition: height .5s ease;
+	font-size: 85%;
+}
+#donate-list.active{
+	height: 100px;
+}
+#donate-list ul{
+	margin: 1em;
+	padding: 0;
+}
+#donate-list ul:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+#donate-list li{
+	list-style: none;
+	float: left;
+	width: 32%;
+	margin-right: 2%;
+}
+#donate-list li:nth-child(3n){
+	margin-right: 0;
+}
+#donate-list li em{
+	color: #555;
+}
+
+@media screen and (max-width: 640px) {
+	.scroll-row{
+		padding: 20px 0;
+	}
+	.container{
+		width: 100%;
+		min-width: 100%;
+		max-width: 100%;
+	}
+	.block-header{
+		padding: 0;
+	}
+	.block-header .container-inner{
+		width: 100%;
+	}
+	.block-header .phone-frame{
+		display: none;
+	}
+	.block-header .hero-unit{
+		position: static;
+		width: 280px;
+		margin: auto;
+	}
+	.block-header .hero-unit ul{
+		display: none;
+	}
+	.block-header .learn-more{
+		display: none;
+	}
+	.block-features .column{
+		float: none;
+		width: 90%;
+		margin: auto;
+	}
+	.block-about .container{
+		position: static;
+		padding: 10px 0 0 0;
+	}
+	.block-about figure{
+		display: block;
+		position: static;
+		width: 100%;
+		text-align: center;
+	}
+	.block-about blockquote{
+		padding: 0 20px;
+	}
+	.block-about blockquote i{
+		display: none;
+	}
+	.block-about .donate{
+		margin-top: 30px;
+		text-align: center;
+	}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="scroll-row block-header">
+	<div class="parallel-image"><img src="http://mbed.qiniudn.com/findyha.com/img/background-1280-in.jpg" /></div>
+	<div class="container">
+		<div class="container-inner">
+			<div class="phone-frame">
+				<div class="phone-frame-inner"><img src="http://mbed.qiniudn.com/findyha.com/img/logo-light-200.png" /></div>
+			</div>
+			<div class="hero-unit">
+				<h1>找青旅<sup>Beta</sup></h1>
+				<h2>背包客旅行路上的好帮手</h2>
+				<ul>
+					<li>囊括267家YHA官方加盟青年旅舍</li>
+					<li>离线数据，支持无网络查询</li>
+					<li>配合地图App快速定位<span class="extra">(需要网络)</span></li>
+				</ul>
+				<div class="download-links">
+					<a href="http://mbed.qiniudn.com/findyha.com/findyha.apk" class="android" title="手机扫一扫直接下载安装">
+						<img src="http://mbed.qiniudn.com/findyha.com/img/download-android.png" />
+						<!-- <i class="fa fa-android"></i><small>Android</small>下载APK安装 -->
+					</a>
+					<a href="http://mbed.qiniudn.com/findyha.com/findyha.ipa" class="ios" title="暂时只支持越狱设备">
+						<img src="http://mbed.qiniudn.com/findyha.com/img/download-ios.png" />
+						<!-- <i class="fa fa-apple"></i><small>For Jailbroken iDevices</small>下载IPA安装 -->
+					</a>
+					<div class="hover-qrcode"></div>
+					<div class="hover-ios-hint">
+						<h4>目前仅支持越狱设备</h4>
+						<p>安装步骤：</p>
+						<ol>
+							<li><a href="http://bbs.tongbu.com/thread-55451-1-1.html" target="_blank">安装Appsync</a></li>
+							<li><a href="http://jingyan.baidu.com/article/14bd256e320a00bb6d261235.html" target="_blank">安装.ipa文件</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="learn-more"><a href="#features" rel="scroll"><i class="fa fa-angle-down"></i></a></div>
+</div>
+
+<div class="scroll-row block-features" id="features">
+	<div class="container">
+		<div class="column feature-data">
+			<h3><i class="fa fa-sitemap"></i>数据全</h3>
+			<p>全国包括香港在内<strong>30</strong>个省份，<strong>101</strong>个城市，<strong>267</strong>家YHA官方青年旅舍的电话和地址信息，数据来源于官方，值得信任。</p>
+		</div>
+		<div class="column feature-bandwidth">
+			<h3><i class="fa fa-mobile-phone"></i>流量省</h3>
+			<p class="description">青旅数据全部内置于APP中，查询不必在线，没有网络的地方依然方便，不使用地图功能完全<b><strong>0</strong>流量</b>。</p>
+		</div>
+		<div class="column">
+			<h3><i class="fa fa-search"></i>查找快</h3>
+			<p class="description">由于数据都已内置，输入关键词可以立即得到查询结果，快人一步，无需等待！</p>
+		</div>
+		<div class="column">
+			<h3><i class="fa fa-map-marker"></i>定位准</h3>
+			<p class="description">直接调用手机地图APP定位（需要使用网络），Android手机支持谷歌地图、百度地图、腾讯地图等常见地图软件，iOS 6以上支持苹果自带的地图软件。</p>
+		</div>
+	</div>
+</div>
+
+<div class="scroll-row block-about" id="about">
+	<div class="container">
+		<figure>
+			<img src="http://s.gravatar.com/avatar/1cd8c12591616d8c22aaa624f8c07834?s=120" width="120" height="120">
+			<!-- <figcaption>mytharcher</figcaption> -->
+		</figure>
+		<blockquote>
+			<i class="fa fa-quote-left"></i>
+			<i class="fa fa-quote-right"></i>
+			<p>这是一款免费App，如果觉得有用，欢迎以捐赠的形式支持同样是背包客的作者，这将激励作者为App带来更多功能。</p>
+			<p>目前还不支持App Store下载，将于捐赠额度达到600元后推出。</p>
+			<p>截至2014年3月7日，已收到<a id="donate-count" href="#donate-list" rel="toggle" class="number"></a>位朋友总计<b id="donate-summary" class="number"></b>元捐款，感谢你们！</p>
+		</blockquote>
+		<blockquote>
+			<div id="donate-list">
+				<ul>
+					<li>*浩<b class="number">5</b><em>2014-03-07</em></li>
+					<li>*岩<b class="number">5</b><em>2014-03-07</em></li>
+					<li>*誉家<b class="number">66</b><em>2014-02-04</em></li>
+					<li>梁*<b class="number">50</b><em>2014-02-02</em></li>
+					<li>*涛<b class="number">30</b><em>2014-02-01</em></li>
+				</ul>
+			</div>
+			<p class="email">与我联系：</p>
+			<p class="donate"><a href="https://me.alipay.com/mytharcher" rel="nofollow" target="_blank"><img src="http://mbed.qiniudn.com/findyha.com/img/donate.png" /></a></p>
+		</blockquote>
+	</div>
+</div>
+
+<div class="scroll-row block-copyright">
+	<div class="container">
+		<p>© Copyright since 2014. All rights reserved.</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://elfjs.qiniudn.com/code/elf-0.5.0.min.js"></script>
+<script type="text/javascript" src="http://mbed.qiniudn.com/yanjunyi.com/js/qrcode.min.js"></script>
+<script type="text/javascript">
+var ParallaxImage = {
+	init: function (selector) {
+		elf(window).on('resize', (function () {
+			this.calculate();
+			this.resizer();
+		}).bind(this));
+
+		elf(window).on('scroll', this.resizer.bind(this));
+
+		this.containers = elf(selector);
+		this.calculate();
+		this.resizer();
+	},
+
+	calculate: function () {
+		var dde = document.documentElement;
+		var db = document.body;
+		this.docHeight = Math.max(dde.offsetHeight, db.offsetHeight);
+		this.viewHeight = Math.min(dde.clientHeight, db.clientHeight);
+
+		this.containers.forEach(this._initItemIterator, this);
+	},
+
+	_initItemIterator: function (item) {
+		var me = elf(item);
+
+		var image = me.query('>.parallel-image');
+		if (image.length) {
+			// 背景图片高度
+			var imageHeight = image[0].offsetHeight;
+
+			var posY = me.getPosition(document.documentElement).y;
+			// 容器的设定高度，一般即屏幕可视范围高度
+			var height = Math.min(this.viewHeight, imageHeight);
+			// 高度差
+			var subHeight = height - item.offsetHeight;
+			// this.viewHeight -= subHeight;
+
+			var beforeScrollHeight  = Math.min(posY, height);
+			var afterScrollHeight   = Math.min(this.docHeight - (posY + height), height);
+			var viewScrollHeight    = beforeScrollHeight + afterScrollHeight;
+			var startScrollY        = Math.max(posY - this.viewHeight, 0);
+			var endScrollY          = startScrollY + afterScrollHeight;
+			// console.log(endScrollY);
+
+			me.setAttribute({
+				'data-image-height'  : imageHeight,
+				'data-image-offset'  : imageHeight - height,
+				'data-top'           : posY,
+				'data-height'        : height,
+				'data-scroll-before' : beforeScrollHeight,
+				'data-scroll-after'  : afterScrollHeight,
+				'data-scroll-offset' : viewScrollHeight,
+				'data-scroll-start'  : startScrollY,
+				'data-scroll-end'    : endScrollY
+			});
+
+			me.css({
+				height: height + 'px',
+				overflow: 'hidden'
+			});
+			image.css({
+				top: height - imageHeight + 'px'
+			});
+		}
+	},
+
+	_resizeItemIterator: function (item) {
+		var me = elf(item);
+		var image = me.query('>.parallel-image');
+		if (image.length) {
+			var imageHeight = image[0].offsetHeight;
+			var height = Math.min(this.viewHeight, imageHeight);
+			me.css({
+				height: height + 'px'
+			});
+
+			// 容器高度和图片高度的差值
+			var imageOffset = parseInt(item.getAttribute('data-image-offset'), 10);
+
+			var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+			// 当前容器位置和body滚动条高度的差值
+			var viewTop = Math.max(scrollTop - item.getAttribute('data-top'), 0);
+			
+			var scrolling = scrollTop - item.getAttribute('data-scroll-start');
+			var scrollEnd = parseInt(item.getAttribute('data-scroll-end'), 10);
+			if (0 < scrolling && scrolling < scrollEnd) {
+				var leftPercent = scrolling / item.getAttribute('data-scroll-offset');
+			// console.log(leftPercent);
+
+				image.css({
+					top: imageOffset * (leftPercent - 1) + 'px'
+				});
+			}
+
+		}
+	},
+
+	resizer: function () {
+		this.containers.forEach(this._resizeItemIterator, this);
+	}
+};
+
+elf(function () {
+	ParallaxImage.init('body>.scroll-row');
+	new QRCode(elf('div.hover-qrcode')[0], {
+		text: elf('div.download-links a.android').attr('href'),
+		width: 120,
+		height: 120
+	});
+
+	function sum () {
+		var args = [].slice.call(arguments, 0);
+		return args.length ? args.length > 1 ? args.pop() + arguments.callee.apply(null, args) : args[0] : 0;
+	}
+
+	var donateList = elf('#donate-list li');
+	var donate = {
+		count: donateList.length,
+		summary: sum.apply(null, donateList.query('>b').toArray().map(function (item) {return parseInt(item.innerHTML, 10);}))
+	};
+	elf('#donate-count').html(donate.count);
+	elf('#donate-summary').html(donate.summary);
+
+	elf('div.block-about .email').on('click', function (ev) {
+		location.href = 'mailto:' + ['mytharcher', 'gmail.com'].join('@');
+	});
+
+	elf('a[rel=scroll]').on('click', function (ev) {
+		ev.preventDefault();
+		var start = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+		var end = elf(this.href.replace(/^.*#/, '#')).getPosition(document.body).y;
+		var distance = end - start;
+		elf.transition.Timeline.start({
+			duration: 300,
+			onenterframe: function (progress) {
+				var percent = progress / this.period;
+				window.scrollTo(0, start + distance * elf.transition.Easing.quadIn(percent));
+			}
+		});
+	});
+
+	elf('a[rel=toggle]').on('click', function (ev) {
+		ev.preventDefault();
+		elf(this.href.replace(/^.*#/, '#')).toggleClass('active');
+	});
+});
+</script>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9b77407862a1fb9b66580d2d6c35b823' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
